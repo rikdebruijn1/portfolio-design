@@ -9,7 +9,7 @@
             margin: 0;
             padding: 0;
             height: 100%;
-            overflow: hidden; /* Zorgt dat de browser zelf niet scrolt, maar de PDF-viewer wel */
+            overflow: hidden;
             background-color: #333;
         }
         iframe {
@@ -17,9 +17,29 @@
             height: 100vh;
             border: none;
         }
+        .mobile-fallback {
+            display: none;
+            color: white;
+            text-align: center;
+            padding: 50px;
+            font-family: Arial, sans-serif;
+        }
+        /* Als het iframe niet werkt of op kleine schermen */
+        @media only screen and (max-width: 768px) {
+            iframe { display: none; }
+            .mobile-fallback { display: block; }
+        }
     </style>
 </head>
 <body>
-    <iframe src="portfolio.pdf#toolbar=0" type="application/pdf"></iframe>
+    <iframe src="portfolio.pdf#toolbar=0" type="application/pdf">
+        <p>Your browser does not support iframes. 
+        <a href="portfolio.pdf">Click here to view the PDF.</a></p>
+    </iframe>
+
+    <div class="mobile-fallback">
+        <p>De PDF-viewer werkt niet optimaal op mobiel.</p>
+        <a href="portfolio.pdf" style="color: #fff; text-decoration: underline;">Klik hier om het portfolio direct te openen.</a>
+    </div>
 </body>
 </html>
