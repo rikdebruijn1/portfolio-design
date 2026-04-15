@@ -32,7 +32,6 @@
         }
 
         .portfolio-button {
-            /* De marge is hier verlaagd voor een hogere positie */
             margin-top: 30px; 
             padding: 16px 32px;
             background-color: #000;
@@ -42,7 +41,7 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             font-weight: bold;
-            transition: opacity 0.5s ease, background-color 0.3s ease;
+            transition: opacity 0.8s ease, background-color 0.3s ease;
             
             /* Onzichtbaar bij laden */
             opacity: 0;
@@ -64,7 +63,7 @@
     <div class="video-container">
         <iframe 
             id="vimeo-player"
-            src="https://vimeo.com/1183534904?share=copy&fl=sv&fe=ci#t=0" 
+            src="https://player.vimeo.com/video/1183534904?autoplay=1&loop=1&autopause=0&muted=1&background=1" 
             allow="autoplay; fullscreen" 
             allowfullscreen>
         </iframe>
@@ -83,6 +82,13 @@
         // De knop verschijnt zodra de video begint te spelen
         player.on('play', function() {
             btn.classList.add('visible');
+        });
+
+        // Extra check voor het geval de 'play' event al is geweest voor het laden van het script
+        player.getPaused().then(function(paused) {
+            if (!paused) {
+                btn.classList.add('visible');
+            }
         });
     </script>
 
