@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Design Process | Portfolio</title>
+    <title>Design Process | Rik de Bruijn</title>
     <style>
         body {
             margin: 0;
@@ -69,7 +69,7 @@
         </iframe>
     </div>
 
-    <a href="portfolio2026v3.pdf" target="_blank" rel="noopener noreferrer" class="portfolio-button" id="portfolio-btn">
+    <a href="portfolio.html" target="_blank" rel="noopener noreferrer" class="portfolio-button" id="portfolio-btn">
         View Portfolio
     </a>
 
@@ -84,7 +84,7 @@
             btn.classList.add('visible');
         });
 
-        // Extra check voor het geval de 'play' event al is geweest voor het laden van het script
+        // Extra check voor directe weergave bij snelle verbinding
         player.getPaused().then(function(paused) {
             if (!paused) {
                 btn.classList.add('visible');
